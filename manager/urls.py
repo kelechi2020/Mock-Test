@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.urls import path, include
+
+from social import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls')),
+    path('post/', views.PostList.as_view()),
+    path('post/detail/', views.PostDetail.as_view()),
+    path('post/average/', views.LikesAverage.as_view()),
 ]
