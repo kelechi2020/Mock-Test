@@ -19,6 +19,7 @@ from django.urls import path, include
 
 from social import views
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),

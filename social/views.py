@@ -13,6 +13,9 @@ from datetime import datetime, timedelta
 
 
 class PostDetail(generics.ListCreateAPIView):
+    """
+    Get latest statistics
+    """
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     post_filterset = PostFilterset
@@ -28,14 +31,18 @@ class PostDetail(generics.ListCreateAPIView):
         return Response(serializer.data)
 
 
-
-
 class PostList(generics.ListCreateAPIView):
+    """
+    Return a list of all saved post
+    """
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
 
 class LikesAverage(generics.ListCreateAPIView):
+    """
+    Fetch average like cout for user id
+    """
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     post_filterset = PostFilterset
